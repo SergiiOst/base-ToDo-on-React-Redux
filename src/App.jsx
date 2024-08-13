@@ -1,10 +1,20 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { useEffect } from "react";
+import AddForm from "./AddForm/AddForm";
+import Contacts from "./Contacts/Contacts";
+import { useDispatch } from "react-redux";
+import { fetchContacts } from "./redux/operations";
 
 function App() {
-  return <></>;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+  return (
+    <>
+      <AddForm />
+      <Contacts />
+    </>
+  );
 }
 
 export default App;
